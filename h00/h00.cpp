@@ -19,6 +19,7 @@ int run()
     // Add your implementation comments here
 
     // Write your code here
+    cout << "[Hello world!]" << endl;
 
     return 0;
 }
