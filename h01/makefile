@@ -25,12 +25,12 @@ run: $(EXE)
 
 # installs this command to ~/bin
 install: $(EXE)
-	@cp $(EXE) ~/bin/who
-	@echo Installed in ~/bin/who
+	@cp $(EXE) ~/bin/me
+	@echo Installed in ~/bin/me
 
 uninstall:
-	@rm ~/bin/who
-	@echo ~/bin/who has been uninstalled
+	@rm ~/bin/me
+	@echo ~/bin/me has been uninstalled
 
 test: $(EXE)
 	@echo Testing . . .
