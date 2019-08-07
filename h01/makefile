@@ -4,36 +4,27 @@ CXXFLAGS = -std=c++17 -Wall -Wextra -Werror -O0 -ggdb3 -fsanitize=signed-integer
 LIBS = $(EXE)
 SRC = $(EXE).cpp
 OBJS = $(EXE).o
-LDLIBS=
 
 $(EXE): $(OBJS) makefile
 	$(CXX) $(CXXFLAGS) -o $@ $(OBJS) -L./ -l$(LIBS)
 
-$(OBJS): $(SRC)
-	$(CXX) -c $(CXXFLAGS) $(SRC)
-
 # Remove object files from folder
 clean:
-	@rm -f core $(EXE) *.o
+	rm -f core $(EXE) *.o
 
 lint:
 	clang++-6.0 --analyze -Xanalyzer -analyzer-output=text $(EXE).cpp
 
 run: $(EXE)
-	@echo Running . . .
-	@./$(EXE)
+	./$(EXE)
 
-# installs this command to ~/bin
-install: $(EXE)
-	@cp $(EXE) ~/bin/me
-	@echo Installed in ~/bin/me
+debug: $(EXE)
+	debug50 ./$(EXE)
 
-uninstall:
-	@rm ~/bin/me
-	@echo ~/bin/me has been uninstalled
+stest: $(EXE)
+	@./$(EXE) $(EXE).tests
 
 test: $(EXE)
-	@echo Testing . . .
 	@git add $(SRC) > /dev/null 2> errors.txt; true
 	@git commit -m "auto commit `date +"%x %X"`"  > /dev/null 2>> errors.txt; true
 	@cat errors.txt 2> /dev/null; true
@@ -41,8 +32,7 @@ test: $(EXE)
 	@rm -rf errors.txt 2> /dev/null; true
 
 submit: $(EXE)
-	@echo Submitting . . .
-	@./$(EXE) -t 1> /dev/null 2> results.txt
+	@./$(EXE) -t 1> /dev/null 2> results.txt; true
 	@git add $(SRC) results.txt > /dev/null 2> errors.txt; true
 	@git commit -m "auto commit `date +"%x %X"`"  > /dev/null 2>> errors.txt; true
 	@git push > /dev/null 2>> errors.txt; true

@@ -1,11 +1,16 @@
 /**
+ *  @author Put your name here
+ *  @date Put the date here
  *  @file h01.cpp
  */
 #include <iostream>
+#include <string>
+#include <iomanip>
 using namespace std;
 
-string STUDENT = "WHO ARE YOU?";  // Add your Canvas login name
+string STUDENT = "Who Are You?";  // Add your Canvas login name
 extern string ASSIGNMENT;
+
 
 /**
  * One line describing what this program does.
@@ -13,8 +18,9 @@ extern string ASSIGNMENT;
  */
 int run()
 {
+    // Add your implementation comments here
+
     // Write your code here
 
     return 0;
 }
-
