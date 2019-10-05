@@ -6,7 +6,7 @@
 #include <string>
 using namespace std;
 
-string STUDENT = WHO AM I?"; // Add your Canvas/occ-email ID
+string STUDENT = "WHO AM I?"; // Add your Canvas/occ-email ID
 
 // NO OTHER CODE IN THIS FILE
 // PUT EVERYTHING IN THE HEADER FILE
